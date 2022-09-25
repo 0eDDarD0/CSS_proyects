@@ -1,0 +1,1004 @@
+/*FUENTES*/
+@font-face {
+    font-family: Baloo;
+    src: url('./fonts/BalooTamma2-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: Indie;
+    src: url('./fonts/IndieFlower-Regular.ttf');
+}
+
+
+/*VARIABLES*/
+:root{
+    --primario: #014d4e;
+    --secundario: #ff9408;
+    --terciario: #017374;
+    --secundario_mod: #ff94088e;
+    --terciario_mod: #01727498;
+}
+
+
+/*REGLAS GENERALES*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Baloo;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body{
+    display: flex;
+}
+
+/*--- MOBILE FIRST ---*/
+
+/* MEDIA HEADER Y BURGER MENU */
+header{
+    display: none;
+}
+/** BOTON DE BURGER **/
+.burger{
+    display: inline-block;
+    position: fixed;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: var(--secundario);
+    border: 3px solid white;
+    border-radius: 100%;
+}
+.burger_click{
+    display: inline-block;
+    position: fixed;
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+
+    width: 50px;
+    height: 50px;
+
+    background-color: white;
+    border-radius: 100%;
+}
+/** CLASE AUXILIAR OCULTA EL MENU EN LA CARGA DE LA PAGINA **/
+.burger_d_n{
+    visibility: hidden;
+}
+/** MENU BURGER **/
+.burger_nav{
+    display: block;
+    position: fixed;
+    z-index: 1;
+
+    width: 90vw;
+    height: 100vh;
+    padding: 1em;
+
+    font-size: 2.5em;
+    color: white;
+    background-color: var(--secundario);
+
+    animation-name: burgerFadeOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes burgerFadeOut{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+.burger_nav_click{
+    display: block;
+    position: fixed;
+    z-index: 1;
+
+    width: 90vw;
+    height: 100vh;
+    padding: 1em;
+
+    font-size: 2.5em;
+    color: white;
+    background-color: var(--secundario);
+
+    animation-name: burgerFadeIn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes burgerFadeIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+
+
+/* STICKY ASIDE */
+aside{
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    width: 10vw;
+    height: 100vh;
+
+    font-size: 0.7em;
+    background-color: var(--primario);
+}
+.aside_content_photo img{
+    width: 10vw;
+}
+.aside_content{
+    height: 100%;
+
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+/** ASIDE SOCIALS **/
+.aside_content_social{
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:flex-end;
+}
+.aside_content_social a i{
+    font-size: 2em;
+    color:white;
+    margin-bottom: 1.5em;
+}
+
+
+/* MAIN */
+main{
+    flex: 1;  
+}
+
+/* PRESENTACION */
+#presentacion{
+    height: 100vh;
+    width: 90vw;
+
+    background-image: url('./img/full-bg-07.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed;
+    background-position: 77%;
+}
+/** TARJETA PRESENTACION **/
+@keyframes loadTarjeta{
+    from{transform: scale(0);}
+    to{transform:  scale(1);}
+}
+#presentacion{
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+.presentacion_content{  
+    background-color: var(--secundario_mod);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    padding: 1em;
+    margin-top: 5em;
+
+    animation: loadTarjeta;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.presentacion_content_titulo{
+    font-size: 2em;
+}
+.presentacion_content_texto{
+    font-size: 1.5em;
+    font-family: Indie;
+}
+.presentacion_content_subtexto{
+    font-size: 1em;
+}
+
+
+/* TRABAJOS */
+#trabajos{
+    width: 90vw;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    background-color: var(--terciario);
+}
+.trabajos_elemento {
+    padding: 2em;
+
+    flex-basis: 25em;
+    flex-grow: 1;
+}
+.trabajos_elemento img {
+    height: 100%;
+    width: 100%;
+
+    clip-path: polygon(
+        20% 0%,
+        80% 0%,
+        100% 20%,
+        100% 80%,
+        80% 100%,
+        20% 100%,
+        0% 80%,
+        0% 20%
+    );
+}
+
+
+/* ABOUT ME */
+#about{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap: wrap;
+
+    width: 90vw;
+    padding: 2em;
+
+    background-color: var(--secundario);
+}
+.about_photo,.about_content{
+    flex-basis: 40em;
+    flex-grow: 1;
+
+    padding: 0.5em;
+}
+.about_photo img{
+    width: 100%;
+    height: 100%;
+  
+    border-radius: 10%;
+}
+.about_content_titulo{
+    font-size: 2.5em;
+
+    color: white;
+
+    position: relative;
+}
+.about_content_texto{
+    margin-bottom: 1.5em;
+
+    font-size: 1.5em;
+    font-family: Indie;
+}
+.about_content_link{
+    padding: 0.1em;
+
+    font-size: 1.5em;
+    color: white;
+
+    border-radius: 10px;
+}
+
+
+/* SERVICIOS */
+#services{        
+    padding: 1em;
+    width: 90vw;
+
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+
+    background-color:var(--primario);
+}
+.services_elemento{
+    padding: 1.5em;
+    margin: 1em;
+
+    flex-basis: 30em;
+    flex-grow: 1;
+
+    background-color: var(--secundario);
+    border: var(--secundario) 0.2em solid;
+  
+    position: relative;
+}
+.services_elemento i,.services_elemento_titulo{
+    font-size: 1.5em;
+}
+.services_elemento i{
+    color: white;
+}
+.services_elemento_texto{
+    font-size: 1.2em;
+    font-family: Indie;
+
+    color: white;
+}
+
+
+/* SKILLS */
+#skills{
+    padding: 0;
+    width: 90vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    background-color: var(--terciario);
+}
+.skills{
+    padding: 3em;
+    
+    flex-basis: 30em;
+    flex-grow: 1; 
+}
+.skills_titulo{
+    font-size: 2em;
+    color: white;
+
+    margin-bottom: 1em;
+}
+.skills_type{
+    color: white;
+}
+.skills_progress{
+    position: relative;
+    display: block;
+
+    padding: 0.5em;
+    margin-bottom: 2em;
+
+    border-radius: 3em;
+    background-color: var(--primario);
+}
+.skills_progress span{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    height: 2em;
+
+    border-radius: 1em;
+    background-color: var(--secundario);
+}
+/**ANIMACIONES DE BARRAS**/
+@keyframes skill1{
+    from{width: 0%;}
+    to{width: 90%;}
+  }
+.skills_progress1{
+    animation-name: skill1;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill2{
+    from{width: 0%;}
+    to{width: 100%;}
+  }
+.skills_progress2{
+    animation-name: skill2;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill3{
+    from{width: 0%;}
+    to{width: 60%;}
+  }
+.skills_progress3{
+    animation-name: skill3;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill4{
+    from{width: 0%;}
+    to{width: 80%;}
+  }
+.skills_progress4{
+    animation-name: skill4;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill5{
+    from{width: 0%;}
+    to{width: 100%;}
+  }
+.skills_progress5{
+    animation-name: skill5;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill6{
+    from{width: 0%;}
+    to{width: 75%;}
+  }
+.skills_progress6{
+    animation-name: skill6;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill7{
+    from{width: 0%;}
+    to{width: 90%;}
+  }
+.skills_progress7{
+    animation-name: skill7;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+@keyframes skill8{
+    from{width: 0%;}
+    to{width: 80%;}
+  }
+.skills_progress8{
+    animation-name: skill8;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: infinite;
+}
+
+
+/* TESTIMONIOS */
+#testimonios{
+    padding: 2em;
+
+    background-color: var(--secundario);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items:center;
+}
+.testimonios_elemento{
+    flex-basis: 30em;
+    flex-grow: 1;
+
+    position: relative;
+
+    color: white;
+
+    margin-bottom: 25vh;
+}
+.testimonios_elemento img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+.testimonios_elemento_titulo{
+    font-size: 2em;
+}
+.testimonios_elemento_texto{
+    font-size: 1.5em;
+    font-family: Indie;
+}
+.testimonios_elemento_content{
+    display: inline-block;
+    position: absolute;
+
+    top: 60%;
+    width: 100%;
+    padding: 0.9em;
+
+    background-color: var(--terciario_mod);
+}
+
+
+/* CONTACTO */
+#contact{
+    width: 90vw;
+    height: 70vh;
+
+    background-image: url("./img/full-bg-03.jpg");
+    background-position-x: 10%;
+    background-position-y: 10%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.contact_form{
+    flex-basis: 45em;
+    flex-direction:column;
+
+    background-color: var(--terciario_mod);
+}
+.contact_form input,.contact_form textarea{
+    font-size: 1.3em;
+    font-family: Indie;
+
+    padding: 1em;
+    width: 90vw;
+
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: var(--secundario) solid 0.1em;
+}
+.contact_form textarea{
+    height: 25vh;
+}
+
+
+
+
+/*--- MEDIA TABLETS ---*/
+@media screen and (min-width:650px){
+
+    /* HEADER Y BURGER MENU */
+    header{
+        display: none;
+    }
+    .burger{
+        display: inline-block;
+        position: fixed;
+        z-index: 2;
+        right: 10px;
+        top: 10px;
+
+        width: 60px;
+        height: 60px;
+
+        background-color: var(--secundario);
+        border: 2px solid white;
+        border-radius: 100%;
+    }
+    .burger_click{
+        display: inline-block;
+        position: fixed;
+        z-index: 2;
+        right: 10px;
+        top: 10px;
+
+        width: 60px;
+        height: 60px;
+
+        background-color: white;
+        border: 2px solid white;
+        border-radius: 100%;
+    }
+    .burger_d_n{
+        visibility: hidden;
+    }
+    .burger_nav{
+        display: block;
+        position: fixed;
+        z-index: 1;
+
+        width: 100%;
+        height: 100vh;
+        padding: 1em;
+
+        font-size: 2.5em;
+        color: white;
+        background-color: var(--secundario);
+
+        animation-name: burgerFadeOut;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes burgerFadeOut{
+        from{opacity: 1;}
+        to{opacity: 0;}
+    }
+    .burger_nav_click{
+        display: block;
+        position: fixed;
+        z-index: 1;
+
+        width: 100%;
+        height: 100vh;
+        padding: 1em;
+
+        font-size: 2.5em;
+        color: white;
+        background-color: var(--secundario);
+
+        animation-name: burgerFadeIn;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    @keyframes burgerFadeIn{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+
+    /* ASIDE */
+    aside{
+        width: 8vw;
+        height: 100vh;
+
+        font-size: 1em;
+    }
+    .aside_content_photo img{
+        width: 8vw;
+    }
+
+
+    /* PRESENTACION */
+    #presentacion{
+        background-position: 77%;
+
+        width: 100%;
+    }
+    .presentacion_content{    
+        padding: 4em;
+        margin-top: 20em;
+    }
+    .presentacion_content_titulo{
+        font-size: 4em;
+    }
+    .presentacion_content_texto{
+        font-size: 2.5em;
+    }
+    .presentacion_content_subtexto{
+        font-size: 2em;
+    }
+    
+    
+    /* TRABAJOS */
+    #trabajos{
+        width: 92vw;
+        padding: 2em;
+    }
+    .trabajos_elemento {
+        padding: 2em;
+    }
+    
+
+    /* ABOUT ME */
+    #about{
+        width: 92vw;
+        padding: 2em;
+    }
+    .about_photo,.about_content{
+        padding: 1em;
+    }
+    .about_content_titulo{
+        font-size: 3em;
+    }
+    .about_content_texto{
+        font-size: 2em;
+    }
+    .about_content_link{
+        font-size: 2em;
+    }
+
+
+    /* SERVICIOS */
+    #services{        
+        width: 92vw;
+        padding: 1.5em;
+    }
+    .services_elemento{
+        padding: 1.5em;
+        margin: 1em;
+    }
+    .services_elemento i,.services_elemento_titulo{
+        font-size: 2.5em;
+    }
+    .services_elemento_texto{
+        font-size: 2em;
+    }
+
+
+    /* SKILLS */
+    #skills{
+        padding: 0;
+        width: 92vw;
+    }
+    .skills_titulo{
+        font-size: 3em;        
+        margin-bottom: 1em;
+    }
+    .skills_type{
+        font-size: 2em;
+    }
+
+
+    /* TESTIMONIOS */
+    .testimonios_elemento{
+        padding: 1.5em;
+
+        margin-bottom: 1em;
+    }
+    .testimonios_elemento_titulo{
+        font-size: 3em;
+    }
+    .testimonios_elemento_texto{
+        font-size: 2em;
+    }
+    .testimonios_elemento_content{
+        display: block;
+        position: relative;
+
+        padding: 1.5em;
+        width: 100%;
+    }
+    .testimonios_elemento:hover .testimonios_elemento_content{
+        animation-name: none;
+    }
+
+
+    /* CONTACTO */
+    #contact{
+        width: 90vw;
+        height: 100vh;
+
+        background-position-x: 0%;
+        background-position-y: 0%;
+    }
+    .contact_form input,.contact_form textarea{
+        font-size: 1.8em;
+
+        padding: 1em;
+        width: 90vw;
+    }
+}
+
+
+
+
+/*--- MEDIA DESKTOP ---*/
+@media screen and (min-width:1000px){
+
+    /* ASIDE */
+    aside{
+        width: 4vw;
+
+        font-size: 1em;
+    }
+    .aside_content_photo img{
+        width: 4vw;
+    }
+    @keyframes socialHover{
+        from{
+            color: white;
+            transform: scale(1);
+            transform: rotate(0deg);
+        }
+        to{
+            color:  var(--secundario);
+            transform: scale(1.4);
+            transform: rotate(360deg);
+        }
+    }
+    .aside_content_social a i:hover{
+        animation: socialHover;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* REGLAS HEADER */
+    header{
+        height: 4vw;
+        width: 100%;
+
+        background-color: #ff9408;
+        color: white;
+
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+    /** ELIMINAMOS EL BURGUER CUANDO ESTAMOS EN DESKTOP **/
+    .burger,.burger_nav{
+        display: none;
+    }
+    header ul{
+        width: 75%;
+
+        font-size: 1.5em;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    header ul li{
+        margin-right: 1em;
+    }
+    @keyframes headerColor{
+        from{color: white;}
+        to{color:  black;}
+    }
+    header ul a:hover{
+        animation-name: headerColor;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* PRESENTACION */
+    .presentacion_content{
+        padding: 3em;
+
+        margin-top: 0;
+    }
+    .presentacion_content_titulo{
+        font-size: 4em;
+    }
+    .presentacion_content_texto{
+        font-size: 2em;
+    }
+    .presentacion_content_subtexto{
+        font-size: 1.5em;
+    }
+
+
+    /* TRABAJOS */
+    #trabajos{
+        width: 100%;
+    }
+    .trabajos_elemento {
+        padding: 2em;   
+    }
+    @keyframes sepia{
+        from{
+            filter: sepia(0%);
+            transform: scale(1);
+        }
+        to{
+            filter: sepia(80%);
+            transform: scale(1.1);
+        }
+    }
+    .trabajos_elemento img:hover{
+        animation-name: sepia;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* ABOUT ME */
+    #about{
+        padding: 2em;
+        width: 100%;
+    }
+    .about_photo,.about_content{
+        padding: 3em;
+    }
+    /**ABOUT CONTENTS**/
+    .about_content_titulo{
+        font-size: 3em;
+    }
+    .about_content_texto{
+        font-size: 2em;
+    }
+    .about_content_link{
+        padding: 0.2em;
+
+        font-size: 1.8em;
+    }
+    @keyframes linkColor{
+        from{background-color: var(--secundario)}
+        to{background-color: var(--terciario)}
+    }
+    .about_content_link:hover{
+        animation-name: linkColor;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* SERVICIOS */
+    #services{    
+        padding: 3em;
+        width: 100%;
+    }
+    .services_elemento{
+        padding: 4em;
+        margin: 2em;
+    }
+    @keyframes serviceColor{
+        from{background-color: var(--secundario)}
+        to{background-color: var(--primario)}
+    }
+    .services_elemento:hover{
+        animation-name: serviceColor;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    .services_elemento i,.services_elemento_titulo{
+        font-size: 2em;
+    }
+    .services_elemento_texto{
+        font-size: 1.5em;
+    }
+
+
+    /* SKILLS */
+    #skills{
+        padding: 3em;
+        width: 100%;
+    }
+    .skills_titulo{
+        font-size: 3em;
+        
+        margin-bottom: 1em;
+    }
+
+
+    /* TESTIMONIOS */
+    #testimonios{
+        width: 100%;
+    }
+    .testimonios_elemento_titulo{
+        font-size: 2.5em;
+    }
+    .testimonios_elemento_texto{
+        font-size: 1.5em;
+    }
+    .testimonios_elemento_content{
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        width: 75%;
+        padding: 1.8em;
+    }
+    @keyframes testimonioContent{
+        from{transform: scale(0.1);}
+        to{transform: scale(1);}
+    }
+    .testimonios_elemento:hover .testimonios_elemento_content{
+        display: inline-block;
+
+        animation-name: testimonioContent;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+    }
+
+
+    /* CONTACTO */
+    #contact{
+        height: 100vh;
+        width: 100%;
+    }
+    .contact_form input,.contact_form textarea{
+        font-size: 1.8em;
+
+        padding: 1.1em;
+        width: 100%;
+    }
+    @keyframes submitColor{
+        from{
+            background-color: var(--terciario_mod);
+            color: white;
+        }
+        to{
+            background-color: var(--secundario);
+            color: black;
+        }
+    }
+    input[type=submit]:hover{
+        animation-name: submitColor;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+    }
+}

@@ -1,0 +1,124 @@
+/* IMPORTS */
+///Fonts imports by Google Fonts. Titillium Web (200, 300, 400, 600, 700, 900)
+///@group fonts
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
+
+
+
+/* VARIABLES */
+///Default time for the animations and transitions
+///@group animations
+$animation_time: 0.3s;
+
+///Media queries break-points
+///@group media
+$breakpoints:(
+    's': 400px,
+    'm': 600px,
+    'l': 800px
+);
+
+///List of used colors (primary, secondary, tertiary and quaternary
+///@group colors
+$colors:(
+    'p': #730039,
+    'pl': hsla(330, 100%, 23%, 0.55),
+    'pd': hsla(330, 100%, 23%, 0.85),
+
+    's': #ffc513,
+    'sl': hsla(45, 100%, 54%, 0.55),
+    'sd': rgba(255, 196, 19, 0.85),
+
+    't': #ff724c,
+    'tl': hsla(13, 100%, 65%, 0.55),
+    'td': rgba(255, 155, 76, 0.85),
+
+    'q': #f6eedf,
+    'ql': hsla(39, 56%, 92%, 0.55),
+    'qd': hsla(39, 56%, 92%, 0.85),
+);
+
+///List of units for font-sizing
+///@group fonts
+$fonts:(
+    'xxs': calc(0.5rem + 1vw),
+    'xs': calc(1rem + 1vw),
+    's': calc(1.5rem + 1vw),
+    'm': calc(2rem + 1vw),
+    'l': calc(2rem + 2vw),
+    'xl': calc(3rem + 2vw),
+    'xxl': calc(3rem + 5vw),
+);
+
+
+
+/* REGLAS GENERALES */
+///Basic rules for the entire page
+///@group general
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Titillium Web', sans-serif;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+
+
+/* MIXINS */
+
+///Mixin used to perform media queries
+///@group media
+///@content The set of css statments that change on a media query
+@mixin media($b){
+    @media screen and (min-width: map-get($breakpoints, $b)){
+        @content;
+    }
+}
+
+///Mixin with the basic rules for an static covering backgorund image
+///@group images
+@mixin bgImgCover{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+///Mixin with the basic rules to simplify a flex-row element
+///@group position
+@mixin flexRow{
+    display: flex;
+    flex-direction: row;
+}
+///Mixin with the basic rules to simplify a flex-column element
+///@group position
+@mixin flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+///Mixin with the basic rules to simplify a grid auto-rows element
+///@group position
+@mixin gridAutoRows{
+    display: grid;
+    grid-template-rows: auto;
+}
+///Mixin with the basic rules to simplify a grid auto-columns element
+///@group position
+@mixin gridAutoColumns{
+    display: grid;
+    grid-template-columns: auto;
+}

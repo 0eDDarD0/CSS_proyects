@@ -1,0 +1,67 @@
+footer#footer{
+    grid-row: footer-start / footer-end;
+
+    background-color: map-get($colors, 'p');
+
+    font-size: map-get($fonts, 'xs');
+
+    padding: 1rem;
+
+    @include flexColumn;
+    justify-content: space-around;
+    align-items: center;
+
+    & > *{
+        padding: 2rem;
+    }
+
+    //Texto del footer
+    & > p{
+        color: white;
+    }
+
+    //Redes sociales
+    & .footer-socials-link{
+        color: map-get($colors, 'p');
+        background-color: map-get($colors, 's');
+    
+        border-radius: 4rem;
+        box-shadow: 0.5rem 0.5rem 5rem 2rem map-get($colors, 'sl');
+    
+        padding: 1rem;
+        margin: calc(1rem + 0.5vw);
+    
+        animation-name: socialsLinks; 
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        //Delay en las desapariciones
+        &:nth-child(1){
+            animation-delay: 0s;
+        }
+        &:nth-child(2){
+            animation-delay: 0.4s;
+        }
+        &:nth-child(3){
+            animation-delay: 0.8s;
+        }
+        &:nth-child(4){
+            animation-delay: 1.2s;
+        }
+    }
+    @keyframes socialsLinks{
+        from{opacity: 0;}
+        to{opacity: 1;}
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* DESKTOP */
+    @include media('l'){
+        &{
+            @include flexRow;
+        }
+    }
+}

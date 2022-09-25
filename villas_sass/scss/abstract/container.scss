@@ -1,0 +1,12 @@
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: [header-start] 100vh 
+                        [header-end booking-start] auto 
+                        [booking-end villas-start] auto
+                        [villas-end lema-start] auto
+                        [lema-end blocks-start] auto
+                        [blocks-end testimonials-start] auto
+                        [testimonials-end footer-start] auto
+                        [footer-end];
+}

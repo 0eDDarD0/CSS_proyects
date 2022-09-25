@@ -1,0 +1,82 @@
+header{
+    font-size: map-get($font-size, 'xs');
+    background-color: map-get($color, 't');
+
+    padding: map-get($spacing, 's');
+
+    @include flexColumn;
+    gap: $gap-size;
+
+    /* CABECERA SUPERIOR */
+    & .header-upper{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+
+        & .header-upper-menu{
+            width: 100%;
+
+            @include flexRow;
+            justify-content: space-evenly;
+        }
+
+        & img{
+            width: 10rem;
+        }
+    }
+
+    /* TITULO DEL HEADER */
+    & .header-title{
+        font-family: 'Great Vibes', cursive;
+        text-align: center;
+        font-size: doubleUnit(map-get($font-size, 'xl'));
+        font-weight: 400
+    }
+
+    /* NAV DEL HEADER */
+    & .header-nav ul{
+        @include flexRow;
+        justify-content: space-evenly;
+    }
+
+    /* ANIMACION ENLACES */
+    & a{
+        transition: color 0.3s;
+    }
+    & a:hover{
+        color: lighten($color: black, $amount: 50);
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* TABLET */
+    @include media('tablet'){
+        &{
+            font-size: map-get($font-size, 's');
+        
+            & .header-upper{
+                & .header-upper-menu{
+                    width: 50%;
+                }
+            }
+        }    
+    }
+
+
+    /* DESKTOP */
+    @include media('desktop'){
+        &{
+            font-size: map-get($font-size, 'm');
+        
+            & .header-upper{
+                & .header-upper-menu{
+                    width: 30%;
+                }
+            }
+        }    
+    }
+}

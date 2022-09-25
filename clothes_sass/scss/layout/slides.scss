@@ -1,0 +1,129 @@
+section#slides{
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    
+    /* CONTENEDOR DE DIAPOSITIVAS */
+    & .slides-item{
+        grid-column: 1;
+        grid-row: 1;
+
+        display: grid;
+        grid-template-columns: 1fr 11fr 2fr;
+        grid-template-rows: 2fr 3fr 1fr;
+
+        height: 70vh;
+        width: auto;
+
+        visibility: hidden;
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        animation-name: hideSlide;
+        animation-duration: 25s;
+        animation-iteration-count: infinite;
+
+        /* FOTO Y DELAY EN LA DESAPARICION */
+        &:nth-child(1){
+            background-image: url('../img/img1.jpg');
+
+            animation-delay: 0s;
+        }
+        &:nth-child(2){
+            background-image: url('../img/img2.jpg');
+
+            animation-delay: 5s;
+        }
+        &:nth-child(3){
+            background-image: url('../img/img3.jpg');
+
+            animation-delay: 10s;
+        }
+        &:nth-child(4){
+            background-image: url('../img/img4.jpg');
+
+            animation-delay: 15s;
+        }
+        &:nth-child(5){
+            background-image: url('../img/img5.jpg');
+
+            animation-delay: 20s;
+        }
+
+        /* CARDS DE LAS DIAPOSITIVAS */
+        & .slides-item-content{
+            grid-column: 2;
+            grid-row: 2;
+
+            background-color: addAlpha(map-get($color, 's'));
+            font-size: map-get($font-size, 'm');
+
+            padding: map-get($spacing, 'xl');
+
+            @include flexColumn;
+            justify-content: space-between;
+
+            & > *{
+                height: 50%;
+            }
+
+            & h3{
+                font-size: map-get($font-size, 'xl');
+            }
+        }
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* TABLET */
+    @include media('tablet'){
+        & .slides-item{    
+            display: grid;
+            grid-template-columns: 1fr 5fr 4fr;
+            grid-template-rows: 4fr 5fr 1fr;
+    
+            height: 70vh;
+            width: auto;    
+        }
+    }
+
+
+    /* DESKTOP */
+    @include media('desktop'){        
+        & .slides-item{        
+            height: 90vh;
+
+            background-position: top;
+        }
+    }
+}
+
+
+/***** ANIMACION DE LOS SLIDES *****/
+@keyframes hideSlide{
+    0%{
+        visibility: hidden;
+        opacity: 0;
+    }
+    5%{
+        visibility: visible;
+        opacity: 1;
+    }
+    20%{
+        visibility: visible;
+        opacity: 1;
+    }
+    21%{
+        visibility: hidden;
+        opacity: 0;
+    }
+    100%{
+        visibility: hidden;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,101 @@
+section#villas{
+    grid-row: villas-start / villas-end;
+
+    background-color: map-get($colors, 'q');
+
+    @include gridAutoRows;
+    @include gridAutoColumns;
+
+    padding: 5% 0 0 0;
+
+    /* VILLAS ITEMS(CARD) */
+    & .villas-item{
+        padding: 5%;
+    
+        color: white;
+
+        //Villas item(card) background
+        &:nth-child(1){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-1.jpg");
+            @include bgImgCover;
+        }
+        &:nth-child(2){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-2.jpg");
+            @include bgImgCover;
+        }
+        &:nth-child(3){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-3.jpg");
+            @include bgImgCover;
+        }
+        &:nth-child(4){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-4.jpg");
+            @include bgImgCover;
+        }
+        &:nth-child(5){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-5.jpg");
+            @include bgImgCover;
+        }
+        &:nth-child(6){
+            background: linear-gradient(map-get($colors, 'pl'), map-get($colors, 'tl')), url("../img/Villas/villa-6.jpg");
+            @include bgImgCover;
+        }
+
+        //Elementos dentro de cada item(card)
+        & > *{
+            margin-bottom: 7%;
+        }
+        
+        & .villas-item-title{
+            font-size: map-get($fonts, 'l');
+            font-weight: 400;
+        }
+
+        & .villas-item-text{
+            font-size: map-get($fonts, 'xs');
+            font-weight: 300;
+        }
+
+        & .villas-item-link{
+            font-size: map-get($fonts, 'xs');
+
+            padding: 2%;
+
+            border: 3px white solid;
+            border-radius: 5px;
+
+            background-color: white;
+            color: map-get($colors, 'p');
+
+            background: linear-gradient(to right, white 50%, map-get($colors, 'p') 50%);
+            background-size: 200% 100%;
+
+            transition: background-position $animation_time ease, color $animation_time ease;
+            &:hover{
+                background-position: right bottom;
+                color: white;
+            }
+        }
+
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* TABLET */
+    @include media('m'){
+        &{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+
+    /* DESKTOP */
+    @include media('l'){
+        &{
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 1rem;
+            column-gap: 1rem;
+        }
+    }
+}

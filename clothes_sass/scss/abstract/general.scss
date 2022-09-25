@@ -1,0 +1,135 @@
+/* IMPORTS */
+
+///Fonts imports by Google Fonts. Josefin Snas (100, 200, 300, 400, 600)
+///@group fonts
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;600&display=swap');
+
+
+
+/* VARIABLES */
+
+///Default gap size chosen for flex and grid elements
+///@group spacing
+$gap-size: 1.6rem;
+
+///List of units for element spacing (margin and padding usage)
+///@group spacing
+$spacing:(
+    'xs' : 0.5rem,
+    's' : 1rem,
+    'm' : 1.5rem,
+    'l' : 3rem,
+    'xl' : 5rem,
+);
+
+///Media queries break-points
+///@group media
+$breakpoints:(
+    'tablet' : 700px,
+    'desktop' : 1024px
+);
+
+///List of units for font-sizing
+///@group fonts
+$font-size:(
+    'xs' : 1.6rem,
+    's' : 1.8rem,
+    'm' : 2rem,
+    'l' : 2.5rem,
+    'xl' : 3rem,
+);
+
+///List of used colors (primary, secondary, tertiary and quaternary
+///@group colors
+$color:(
+    'p' : #333,
+    's' : #ffe,
+    't' : #f2f0f1,
+    'q' : #ff94088e,
+);
+
+
+
+/* REGLAS GENERALES */
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    // font-family: 'Great Vibes', cursive;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+:root{
+    font-size: 50%;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul{
+    list-style: none;
+}
+
+
+/* FUNCIONES */
+
+///Function that doubles the size of a font, used for extraordinary large fonts
+///@group fonts
+///@param {unit} $font
+///@return {unit} The doubled value of the unit passed
+@function doubleUnit($font){
+    @return $font * 2;
+}
+
+///Function that adds alpha value to a color, to give it some transparency
+///@group colors
+///@param {color} $color
+///@return {color} Same color that is passed with a 50% transparency
+@function addAlpha($color){
+    @return rgba($color, .5);
+}
+
+
+/* MIXINS */
+
+///Mixin used to perform media queries
+///@group media
+///@content The set of css statments that change on a media query
+@mixin media($b){
+    @media screen and (min-width: map-get($breakpoints, $b)){
+        @content;
+    }
+}
+
+///Mixin with the basic rules to simplify a flex-row element
+///@group position
+@mixin flexRow{
+    display: flex;
+    flex-direction: row;
+}
+///Mixin with the basic rules to simplify a flex-column element
+///@group position
+@mixin flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+///Mixin for the fonts in the lists at the footer of the page
+///@group fonts
+@mixin footerList{
+    
+    h3{
+        font-size: map-get($font-size, 'xl');
+        font-weight: 600;
+    }
+
+    ul{
+        font-size: map-get($font-size, 'l');
+        font-weight: 300;
+    }
+}

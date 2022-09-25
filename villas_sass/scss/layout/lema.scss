@@ -1,0 +1,46 @@
+section#lema{
+    grid-row: lema-start / lema-end;
+
+    background-color: map-get($colors, 'p');
+
+    padding: 5%;
+
+    @include flexColumn;
+    justify-content: space-evenly;
+    align-items: center;
+
+    //Cada elemento en la caja de lema
+    & > *{
+        margin-bottom: 1%;
+    }
+
+    & .lema-title{
+        color: white;
+        font-weight: 300;
+        font-size: calc(2rem + 2vw);
+    }
+
+    & .lema-line{
+        background-color: white;
+
+        height: 0.1rem;
+        width: 10%;
+    }
+
+    & .lema-text{
+        color: white;
+
+        font-weight: 200;
+        font-size: calc(0.5rem + 1vw);
+        text-align: center;
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /*  */
+    @include media(''){
+        
+    }
+}

@@ -1,0 +1,133 @@
+section#products{
+    background-color: map-get($color, 't');
+    border-bottom: solid 2px black;
+
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 1fr 8fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    gap: $gap-size;
+
+    /* TITULO DE LA SECCION */
+    & .products-title{
+        grid-column: 1 / -1;
+        grid-row: 1;
+
+        font-size: map-get($font-size, 's');
+        font-weight: 300;
+
+        @include flexRow;
+        justify-content: center;
+    }
+
+    /* CONTENEDOR DE PRODUCTOS */
+    & .products-container{
+        grid-column: 1 / -1;
+
+        @include flexRow;
+
+        /* PRODUCTO */
+        & .products-item{
+            width: 100%;
+            height: 50vh;
+
+            @include flexRow;
+            justify-content: center;
+            align-items: center;
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            
+            /* IMAGENES INDIVIDUALES */
+            &:nth-child(1){
+                background-image: url('../img/product1.png');
+            }
+            &:nth-child(2){
+                background-image: url('../img/product2.png');            
+            }
+            &:nth-child(3){
+                background-image: url('../img/product3.png');
+            }
+    
+            /* CARD DE PRODUCTO */
+            & .products-item-content{
+                font-size: map-get($font-size, 'l');
+                background-color: rgba($color: map-get($color, 't'), $alpha: 0.8);
+
+                padding: map-get($spacing, 'm');
+
+                border: 2px solid black;
+                border-radius: 10px;
+
+                transform: scale(0);
+                transition: transform 0.3s;
+
+                & > *{
+                    margin-bottom: map-get($spacing, 's');
+                }
+
+                /* BOTON DE COMPRA */
+                & a{
+                    padding: map-get($spacing, 'xs');
+
+                    background-color: map-get($color, 'p');
+                    color: map-get($color, 'q');
+
+                    border: 1px solid map-get($color, 'q');
+                }
+            }
+            /* ANIMACION APARICION DE CARD */
+            &:hover .products-item-content{
+                transform: scale(1);
+            }
+        }
+    }
+
+    /* BOTON DE PRODUCTOS */
+    & .products-button{
+        grid-column: 1 / -1;
+        grid-row: 3;
+
+        font-size: map-get($font-size, 's');
+        font-weight: 300;
+
+        @include flexRow;
+        justify-content: center;
+        align-items: center;
+
+
+        & .products-button-arrow{
+            color: map-get($color, 't');
+            background-color: black;
+
+            border-radius: 100%;
+
+            padding: map-get($spacing, 's');
+            margin: map-get($spacing, 'xs');
+        }
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* TABLET */
+    @include media('tablet'){
+        padding: map-get($spacing, 'l');
+    }
+
+
+    /* DESKTOP */
+    @include media('desktop'){        
+        & .products-container{
+            grid-column: 2 / -2;
+
+            & .products-item{
+                height: 70vh;
+            }
+        }
+    }
+
+}

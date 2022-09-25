@@ -1,0 +1,163 @@
+section#booking{
+    grid-row: booking-start / booking-end;
+
+    background-color: map-get($colors, 'q');
+
+    // @include gridAutoRows;
+    // grid-template-columns: 1fr 1fr;
+    @include gridAutoColumns;
+    grid-template-rows:  repeat(2, 1fr);
+
+    /* BOOKING IZQUIERDA */
+    & .booking-1{
+        @include flexColumn;
+        justify-content: space-evenly;
+
+        padding: 0 10% 0 10%;
+
+        /* BOOKING IZQUIERDA TITULO */
+        & .booking-1-title{
+            font-size: map-get($fonts, 'xl');
+            font-weight: 300;
+
+            //Underline bajo el titulo
+            & .booking-1-title-line{
+                height: 0.3rem;
+                width: 35%;
+            
+                position: relative;
+                left: 20%;
+                bottom: 5%;
+            
+                background-color: map-get($colors, 's');
+            }
+        }
+
+        /* BOOKING IZQUIERDA TEXTO */
+        & .booking-1-text{
+            font-size: map-get($fonts, 'xs');
+            font-weight: 300;
+
+            color: map-get($colors, 'p');
+        }
+
+        /* BOOKING IZQUIERDA ICONOS */
+        & .booking-1-icons{
+            font-weight: 300;
+
+            color: map-get($colors, 'p');
+
+            @include flexRow;
+            justify-content: space-between;
+
+            //Contenedores de iconos
+            & .booking-1-icons-sun,.booking-1-icons-time{
+                font-size: map-get($fonts, 's');
+
+                @include flexRow;
+                justify-content: space-around;
+                align-items: center;
+            
+                width: 40%;
+
+                //El icono traducido a SVG
+                & svg{
+                    color: map-get($colors, 's');
+                
+                    font-size: map-get($fonts, 'xl');
+                
+                    margin-right: 10%;
+                }
+            }
+        }
+    }
+
+
+    /* BOOKING DERECHA */
+    & .booking-2{
+        padding: 5% 0;
+
+        display: grid;
+        grid-template-columns: 5% auto 5%;
+
+        /* BOOKING DERECHA CUADRADOS */
+        & .booking-2-data{
+            grid-column: 2 / 3;
+
+            margin-bottom: 10%;
+
+            @include gridAutoRows;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10%;
+
+            //Cuadrados amarillos grandes
+            & .booking-2-data-item{
+                & h4{
+                    font-size: map-get($fonts, 's');
+                    text-align: center;
+                
+                    margin-bottom: 2rem;
+                }
+                & div{
+                    background-color: map-get($colors, 's');
+                
+                    padding: 8rem calc(2rem + 2vw);
+                }
+                & p{
+                    font-size: map-get($fonts, 's');
+                    text-align: center;
+                
+                    color: white;
+                }                
+            }
+        }
+
+        /* BOOKING DERECHA CONTACTO */
+        & .booking-2-contact{
+            grid-column: 2 / 3;
+
+            //Boton reservation
+            & .booking-2-contact-link{
+                border: map-get($colors, 's') 3px solid;
+                border-radius: 5px;
+            
+                font-size: map-get($fonts, 'xs');
+            
+                padding: calc(0.2rem + 1vw);
+            
+                background-color: map-get($colors, 's');
+                color: white;
+            
+                transition: color $animation_time, background-color $animation_time;
+                &:hover{
+                    color: map-get($colors, 's');
+                    background-color: white;
+                }
+            }
+
+            //Texto de contacto
+            & div{
+                font-size: map-get($fonts, 'xs');
+                color: map-get($colors, 'p');
+                margin-top: 10%;
+            }
+        }
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* DESKTOP */
+    @include media('l'){
+        &{
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+
+            //Booking izquierda
+            & .booking-1{    
+                padding: 0 5rem 0 5rem;
+            }
+        }
+    }
+}

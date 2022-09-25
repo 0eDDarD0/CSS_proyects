@@ -1,0 +1,180 @@
+section#blocks{
+    grid-row: blocks-start / blocks-end;
+
+    background-color: map-get($colors, 'q');   
+
+    @include gridAutoColumns;
+    grid-template-rows: repeat(3, auto);
+
+    /* REGLAS GENERICAS PARA TODOS LOS ITEMS(CARDS) */
+    & > * > *{
+        padding: 15% 2% 15% 2%;
+
+        color: white;
+    }
+    & > * > * > h1{
+        font-weight: 300;
+        font-size: map-get($fonts, 'l');
+
+        margin-bottom: 5%;
+    }
+    & > * > * > p{
+        font-weight: 300;
+        font-size: map-get($fonts, 'xs');
+    }
+
+    /***** BLOCKS EVENTOS *****/
+    & .blocks-events{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, auto);
+
+        & .blocks-events-title{
+            display: none;
+        }
+
+        & .blocks-events-beach{
+            background: linear-gradient(map-get($colors, 'tl'), map-get($colors, 'tl')),url("../img/Events/beach-party.jpg");
+            @include bgImgCover;
+        }
+
+        & .blocks-events-culture{
+            background: linear-gradient(map-get($colors, 'tl'), map-get($colors, 'tl')),url("../img/Events/culture-discovery.jpg");
+            @include bgImgCover;
+        }
+    }
+
+    /***** BLOCKS GALLERY *****/
+    & .blocks-gallery{
+        & .blocks-gallery-photo{
+            background: url("../img/Gallery/gallery-10.jpg");
+            @include bgImgCover;
+    
+            height: 50vh;
+    
+            border: 2px solid map-get($colors, 's');
+        }
+
+        & .blocks-gallery-title{
+            display: none;
+        }
+    }
+
+    /***** BLOCKS FEATURES *****/
+    & .blocks-features{
+        @include gridAutoColumns;
+        grid-template-rows: repeat(2, auto);
+
+        & .blocks-features-title{
+            display: none;
+        }
+
+        & .blocks-features-cocktail{
+            background: linear-gradient(map-get($colors, 'sl'), map-get($colors, 'sl')),url("../img/Features/cocktail.jpg");
+            @include bgImgCover;
+        }
+
+        & .blocks-features-surfing{
+            background: linear-gradient(map-get($colors, 'sl'), map-get($colors, 'sl')),url("../img/Features/surfing.jpg");
+            @include bgImgCover;
+        }
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* MÓVIL GRANDE */
+    @include media('s'){
+        &{
+            & .blocks-events,.blocks-features{
+                @include gridAutoRows;
+                grid-template-columns: repeat(2, 1fr);
+
+                & .blocks-events-beach{
+                    border-right: 2px solid map-get($colors, 't');
+                }    
+                & .blocks-features-cocktail{
+                    border-right: 2px solid map-get($colors, 's');
+                }
+            }
+        }
+    }
+
+
+
+    //////////////////////////////////////////// MEDIA QUERIES
+
+    /* TABLET */
+    @include media('m'){
+        &{
+            /* BLOQUES DE EVENTOS Y FEATURES */
+            & .blocks-events,.blocks-features{
+                @include gridAutoRows;
+                grid-template-columns: 4fr 4fr 2fr;
+
+                //Titulo de bloque
+                & .blocks-events-title,.blocks-features-title{
+                    @include flexRow;
+                    justify-content: center;
+                    align-items: center;
+
+                    & > h1{
+                        transform: rotate(90deg);
+                    }
+                }
+                & .blocks-events-title{
+                    background-color: map-get($colors, 't');
+                }
+                & .blocks-features-title{
+                    background-color: map-get($colors, 's');
+                }
+            }
+
+            
+            /* BLOQUE DE GALERIA */
+            & .blocks-gallery{
+                @include gridAutoRows;
+                grid-template-columns: 1fr 6fr;
+
+                //Titulo de bloque
+                & .blocks-gallery-title{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                
+                    background-color: map-get($colors, 'p');
+
+                    & > h1{
+                        transform: rotate(270deg);
+                    }  
+                }
+            } 
+        }
+    }
+
+
+    /* DESKTOP */
+    @include media('l'){
+        &{
+            & .blocks-events{
+                grid-template-columns: 5fr 5fr 2fr 3fr;
+            }
+
+            & .blocks-gallery{
+                grid-template-columns: 2fr 1fr 8fr;
+
+                & .blocks-gallery-title{
+                    grid-column: 2 / 3;
+                }
+                & .blocks-gallery-photo{
+                    grid-column: 3 / 4;
+                }
+            }
+
+            & .blocks-features{
+                grid-template-columns: 6.5fr 6.5fr 2fr 2fr;
+            }
+        }
+    }
+}  
